@@ -1,0 +1,19 @@
+﻿@page "/sequencia"
+
+<h3>Sequência</h3>
+@*@numeros*@
+@msn
+
+@code 
+{
+    private int[] numeros = {};
+
+    private string msn;
+
+    protected override void OnInitialized()
+    {
+        BlazorsClassLibrary.Sequencia sequencia = new BlazorsClassLibrary.Sequencia();
+        //numeros = sequencia.GetNumero(numeros[]);
+        msn = sequencia.GetMensagem();
+    }
+}

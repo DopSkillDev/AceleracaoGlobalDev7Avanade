@@ -1,0 +1,30 @@
+@using System.Reflection
+@inject Microsoft.AspNetCore.Components.WebAssembly.Services.LazyAssemblyLoader lazyLoader
+
+
+<Router AppAssembly="@typeof(Program).Assembly"
+    OnNavigateAsync="OnNavigateAsync"
+        AdditionalAssemblies="lazyLoadAssemblies" PreferExactMatches="@true">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+    </Found>
+    <NotFound>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p>Sorry, there's nothing at this address.</p>
+        </LayoutView>
+    </NotFound>
+</Router>
+
+
+@code{
+    private List<Assembly> lazyLoadAssemblies = new List<Assembly>();
+
+    private async Task OnNavigateAsync(NavigationContext args)
+    {
+        if(args.Path.EndsWith("sequencia"))
+        {
+            var assemblies = await lazyLoader.LoadAssembliesAsync(new List<string> { "BlazorsClassLibrary.dll" });
+            lazyLoadAssemblies.AddRange(assemblies);
+        }
+    }
+}

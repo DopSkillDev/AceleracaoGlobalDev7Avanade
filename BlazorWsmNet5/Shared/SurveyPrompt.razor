@@ -1,0 +1,33 @@
+﻿<div class="alert alert-secondary mt-4" role="alert">
+    <span class="oi oi-pencil mr-2" aria-hidden="true"></span>
+    <strong>@Title</strong>
+
+    <span class="text-nowrap">
+        Caso queira acessar Aceleração da Digital Innovate One
+        <a target="_blank" class="font-weight-bold" href="https://web.digitalinnovation.one/accelerations">Aceleração</a>
+    </span>
+    e diga-nos o que você pensa.
+</div>
+
+
+<div class="alert alert-secondary mt-4" role="alert">
+    <span class="oi oi-pencil mr-2" aria-hidden="true"></span>
+    <strong>@SubTitle</strong>
+
+    <span class="text-nowrap">
+        Pronto para começar?
+        <a target="_blank" class="font-weight-bold" href="https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor">
+            Blazor - Crie aplicativos da web cliente com C #
+        </a>
+    </span>    
+</div>
+
+
+@code {
+    // Demonstrates how a parent component can supply parameters
+    [Parameter]
+    public string Title { get; set; }
+    
+    [Parameter]
+    public string SubTitle { get; set; }
+}
